@@ -1,0 +1,26 @@
+# doc: https://github.com/redhat-plumbers-in-action/devel-freezer#readme
+---
+
+name: Development Freeze
+on:
+  pull_request:
+    types: [ opened, reopened, synchronize ]
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  freezer:
+    runs-on: ubuntu-22.04
+
+    permissions:
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+
+      - name: Development Freezer
+        uses: redhat-plumbers-in-action/devel-freezer@49e7ebe49abb20e27813b945073c367f3b6f1321
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
