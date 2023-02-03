@@ -4,7 +4,6 @@ name: Gather Pull Request Metadata
 
 on:
   pull_request:
-    branches: [ main ]
 
 env:
   PULL_REQUEST_METADATA_DIR: pull_request
@@ -15,7 +14,6 @@ permissions:
 
 jobs:
   gather-metadata:
-    if: github.repository == 'systemd/systemd'
     runs-on: ubuntu-22.04
 
     steps:
