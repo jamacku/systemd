@@ -36,3 +36,9 @@ jobs:
         uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608
       - name: Build check
         run: .github/workflows/build_test.sh
+      - id: ShellCheck
+        name: Differential ShellCheck
+        uses: redhat-plumbers-in-action/differential-shellcheck@0b37fe02890c6a44e860a205975888f387ae0096
+        with:
+          diff-scan: false
+          scan-directory: build/
